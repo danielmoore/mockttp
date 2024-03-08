@@ -2,7 +2,6 @@ import { Clock, install as installFakeTimer, timers } from '@sinonjs/fake-timers
 import { expect, fetch, nodeOnly } from '../test-utils';
 
 import { getLocal } from '../..';
-import { mock } from 'node:test';
 
 describe('Compatibility with mock timers', () => {
   const server = getLocal();
@@ -29,6 +28,8 @@ describe('Compatibility with mock timers', () => {
 
   if (+process.version.split('.')[0] >= 19) {
     it('works with Node timers', async () => {
+      const { mock } = await import('node:test');
+
       await server.forGet('/mocked-endpoint').thenReply(200, 'mocked data');
 
       mock.timers.enable({ now: 0, apis: ['Date', 'setImmediate', 'setInterval', 'setTimeout'] });
