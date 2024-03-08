@@ -27,15 +27,17 @@ describe('Compatibility with mock timers', () => {
     }
   });
 
-  it('works with Node timers', async () => {
-    await server.forGet('/mocked-endpoint').thenReply(200, 'mocked data');
+  if (+process.version.split('.')[0] >= 19) {
+    it('works with Node timers', async () => {
+      await server.forGet('/mocked-endpoint').thenReply(200, 'mocked data');
 
-    mock.timers.enable({ now: 0, apis: ['Date', 'setImmediate', 'setInterval', 'setTimeout'] });
-    expect(Date.now()).to.eq(0);
-    try {
-      await expect(fetch(server.urlFor('/mocked-endpoint'))).to.have.responseText('mocked data');
-    } finally {
-      mock.timers.reset();
-    }
-  });
+      mock.timers.enable({ now: 0, apis: ['Date', 'setImmediate', 'setInterval', 'setTimeout'] });
+      expect(Date.now()).to.eq(0);
+      try {
+        await expect(fetch(server.urlFor('/mocked-endpoint'))).to.have.responseText('mocked data');
+      } finally {
+        mock.timers.reset();
+      }
+    });
+  }
 });
