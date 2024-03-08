@@ -95,6 +95,7 @@
   },
   "homepage": "https://github.com/httptoolkit/mockttp#readme",
   "devDependencies": {
+    "@sinonjs/fake-timers": "^11.2.2",
     "@types/base64-arraybuffer": "0.1.0",
     "@types/body-parser": "1.19.1",
     "@types/chai": "4.2.21",
@@ -110,6 +111,7 @@
     "@types/request": "2.48.7",
     "@types/semver": "7.5.0",
     "@types/shelljs": "0.8.9",
+    "@types/sinonjs__fake-timers": "^8.1.5",
     "@types/source-map-support": "0.4.2",
     "@types/uuid": "8.3.4",
     "@types/ws": " 8.5.3",

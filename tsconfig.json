@@ -1,25 +1,21 @@
 {
-    "compilerOptions": {
-        "target": "ES2020",
-        "module": "commonjs",
-        "outDir": "./dist",
-        "declaration": true,
-        "sourceMap": true,
-        "declarationMap": true,
-        "strict": true,
-        "lib": [
-            "ES2020",
-        ],
-        "paths": {
-            "https-proxy-agent": ["./custom-typings/proxy-agent-modules.d.ts"],
-            "socks-proxy-agent": ["./custom-typings/proxy-agent-modules.d.ts"],
-            "pac-proxy-agent": ["./custom-typings/proxy-agent-modules.d.ts"]
-        }
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
+    "strict": true,
+    "lib": ["ES2020"],
+    "paths": {
+      "https-proxy-agent": ["./custom-typings/proxy-agent-modules.d.ts"],
+      "socks-proxy-agent": ["./custom-typings/proxy-agent-modules.d.ts"],
+      "pac-proxy-agent": ["./custom-typings/proxy-agent-modules.d.ts"]
     },
-    "compileOnSave": true,
-    "buildOnSave": true,
-    "include": [
-        "custom-typings/*.d.ts",
-        "src/**/*.ts"
-    ]
+    "skipLibCheck": true
+  },
+  "compileOnSave": true,
+  "buildOnSave": true,
+  "include": ["custom-typings/*.d.ts", "src/**/*.ts"]
 }
